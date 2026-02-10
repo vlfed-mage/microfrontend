@@ -1,5 +1,14 @@
-import { faker } from '@faker-js/faker';
+import {faker} from '@faker-js/faker';
 
-const cartText = `You have ${faker.number.int()} items in your cart`;
+const mountCart = (el) => {
+    el.innerHTML = `You have ${faker.number.int()} items in your cart`;
+}
 
-document.getElementById('dev-cart').innerHTML = cartText;
+if (process.env.NODE_ENV === 'development') {
+    const el = document.getElementById('cart-app');
+    if (el) {
+        mountCart(el);
+    }
+}
+
+export { mountCart }
