@@ -1,1 +1,1 @@
-console.log('cart is loaded');
+import('./bootstrap');
